@@ -1,0 +1,6 @@
+FROM postgres:latest
+
+ENV POSTGRES_PASSWORD 1234
+
+ENV POSTGRES_DB apirestflask
+ENV POSTGRES_USER root
