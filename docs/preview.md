@@ -41,3 +41,10 @@ Para iniciar o **PostgreSQL**, execute o seguinte comando no terminal:
 ```
 docker up -d 
 ```
+
+Verificando o Status do Contêiner:
+
+```
+docker-compose ps
+```
+
