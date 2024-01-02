@@ -12,7 +12,24 @@
 
 Se deseja ter controle sobre as configurações do contêiner Docker, como a ``porta``, ``usuário`` e ``senha``, é necessário acessar a documentação de desenvolvimento e configuração de ambiente do projeto. Para isso, clique <a href="docs/preview.md">aqui</a>.
 
+Se optar pela instalação padrão do projeto é simplesmente executar no terminal, execute os seguintes comandos:
 
+**Construa a imagem e inicie o contêiner.**
+
+```bash
+docker-compose build
+docker-compose up -d
+```
+
+O primeiro comando construirá a imagem do PostgreSQL com base no `Dockerfile`, e o segundo iniciará o contêiner em segundo plano.
+
+**Verifique o status do contêiner.**
+
+Para verificar se o contêiner está em execução, use o seguinte comando:
+
+```bash
+docker ps
+```
 
 ---
 
