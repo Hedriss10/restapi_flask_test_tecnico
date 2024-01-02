@@ -4,32 +4,39 @@
 
 ### Inicializando o projeto 🔧 🔨 ⚙️
 
-*Para iniciar o projeto com o banco de dados postgres é necessario buildar uma imagem no docker e com isso proseguir o cosumo da `APIREST` é ncessário que seguir as regras de comando para que não aconteca algum erro inesperado:*
+*Para inicializar o projeto em sua máquina é de extrema importância que você siga os passos desde `readme` para que não acontece nenhum erro inesperado.*
 
 
 **Configuracão do docker:** 🔧 🐳
 
 Se você quer ter controle do container do docker para mudar a ``porta``, ``usuário`` e ``senha`` é necessário que você acesse a documentação de desenvolvimento e configuração de ambiente do projeto clica -> <a href="/docs/preview.md">aqui</a>   
 
+---
 
-**Configuracão do Python:** 🐍🐍
+**Clonado o projeto e configurando as intalacões do Python:** 🐍🔎💻
 
 Configuracão do Python o projeto foi desenvolvido com package <a href="https://pypi.org/">pypi</a>
 
-Mas irei deixar como você instala as depedencias com outros instaldores de pacotes é importante que você crie o ambiente virutual antes de instalar o `requirements.txt`
+Mas citar e mostrar como você instalar as depedências com este instalador de pacote.
 
-Criando seu ambinete virutal 
+Criando seu ambinete virtual 
 ```
 python -m venv env # or venv 
 ```
-De acordo com o comando ele irá criar um venv ou env de sua preferência dentro da pasta que deseja clonar este projeto 
+De acordo com o comando ele irá criar um venv ou env de sua preferência dentro da pasta que deseja clonar este projeto.
+
+Clonando este projeto
+```
+git clone https://github.com/Hedriss10/restapi_flask_test_tecnico.git
+```
+Clonando com web URL mas você pode também clona via ``ssh`` ou ``GitHub CLI` fique de acordo com sua preferência.
 
 
-**Clonando este projeto:** 🔎💻
-
-
-
-
+Instalando as dependências
+```
+pip install -r requirements.txt
+```
+De acordo com o ``requiremenets.txt`` ele é o responsável para manter os `frameworks` na nossa aplicação.
 
 
 
