@@ -58,9 +58,26 @@ pip install -r requirements.txt
 ```
 De acordo com o ``requiremenets.txt`` ele é o responsável para manter os `frameworks` na nossa aplicação.
 
+---
+
+### Como executar o projeto 🖥️🌐
+
+Para executar o API
 
 
+```bash
+$env:FLASK_ENV = "development"
+``` 
 
+Definindo o `run.py`
+```bash
+$env:FLASK_APP = "run"
+```
+
+Com o Debugger ativo!
+```bash 
+python run.py 
+```
 
 
 
