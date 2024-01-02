@@ -2,6 +2,10 @@
 # Created by https://www.toptal.com/developers/gitignore/api/windows,visualstudiocode,circuitpython,python,pythonvanilla
 # Edit at https://www.toptal.com/developers/gitignore?templates=windows,visualstudiocode,circuitpython,python,pythonvanilla
 
+database/
+
+
+
 ### CircuitPython ###
 .Trashes
 .metadata_never_index
