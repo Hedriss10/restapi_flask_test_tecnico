@@ -8,7 +8,8 @@ from flask import Flask
 from flask_sqlalchemy import SQLAlchemy
 from flask_restful import Api
 from config import app_active, app_config
-from models.GeosCrud import GeosCrud
+from resources.geospaciais import Georest, GeoGrud
+
 
 # Variavel de controle de desenvolvimento
 config = app_config[app_active]
@@ -31,7 +32,8 @@ def create_app(config_name):
 
     def load_endpoint_uri():
         print("Executando o load_endpoint dos recursos da api")
-        api.add_resource(GeosCrud, "/item")
+        api.add_resource(Georest, "/itens")
+        api.add_resource(GeoGrud, "/item<string:id_itens>")
         
         
         
