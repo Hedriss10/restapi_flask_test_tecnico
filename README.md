@@ -9,7 +9,10 @@
 
 **Configuracão do docker:** 🔧 🐳
 
-Se você quer ter controle do container do docker para mudar a ``porta``, ``usuário`` e ``senha`` é necessário que você acesse a documentação de desenvolvimento e configuração de ambiente do projeto clica -> <a href="/docs/preview.md">aqui</a>   
+
+Se deseja ter controle sobre as configurações do contêiner Docker, como a ``porta``, ``usuário`` e ``senha``, é necessário acessar a documentação de desenvolvimento e configuração de ambiente do projeto. Para isso, clique <a href="docs/preview.md">aqui</a>.
+
+
 
 ---
 
