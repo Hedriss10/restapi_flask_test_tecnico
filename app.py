@@ -1,5 +1,4 @@
 # --utf8-- 
-
 """
 App do Flask com a regra de negócio aplicada de acordo com o test técnico
 """
