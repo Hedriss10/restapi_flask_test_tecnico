@@ -86,8 +86,6 @@ class ItemModel(db.Model):
         Finalmente, all() é chamado para executar a consulta e obter uma lista de resultados.
     
         """    
-    
-        
         point = func.ST_SetSRID(func.ST_MakePoint(longitude, latitude), 4326)
 
         result = cls.query.filter(

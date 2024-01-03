@@ -16,7 +16,7 @@ def create_app(config_name):
     app = Flask(__name__)
     app.config.from_object(config_by_name[config_name])
     
-    db.init_app(app)  # Initialize SQLAlchemy with the Flask app
+    db.init_app(app)  
     
     api = Api(app, version="1.0", title='APIREST Itens geoespaciais', description='Desenvolvimento de APIREST para teste técnico.')
     
@@ -29,7 +29,7 @@ def create_app(config_name):
 
     
     def load_endpoint_uri():
-        api.add_resource(ItemAllResource, '/itens') # retornadno todos os itens do banco de dados 
+        api.add_resource(ItemAllResource, '/itens') # retornado todos os itens do banco de dados 
         api.add_resource(ItemResource, '/item/<string:id>') # crud da aplicação do item 
         api.add_resource(GeospatialSearch, '/geo-search') # buscar o um item por campo geométrico 
         api.add_resource(UserRegistrationResource, '/register')  # registro do usuário
