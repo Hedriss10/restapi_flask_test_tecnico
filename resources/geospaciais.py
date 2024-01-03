@@ -18,6 +18,13 @@ geospatial_search_model = api.model('GeospatialSearch', {
     'radius': fields.Float(required=True, description='Raio de busca em unidades específicas')
 })
 
+class ItemAllResource(Resource):
+    """
+    Esta classe retorna todos os itens cadastrados no banco de dados.
+    """
+    def get(self):
+        return {"message": [item.json() for item in ItemModel.query.all()]}
+
 
 class ItemResource(Resource):
     attrs = reqparse.RequestParser()

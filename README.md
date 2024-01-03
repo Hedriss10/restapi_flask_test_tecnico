@@ -80,7 +80,9 @@ python run.py
 ```
 
 
+### Consumindo APIREST com Postman
 
+Documentação da api desenvolvida por Postaman e consumida por requisições e testada no postman  veja no link -> <a herf="https://documenter.getpostman.com/view/26207405/2s9YsFDtwH">PostmanDocs.</a>
 
 
 

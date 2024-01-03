@@ -7,7 +7,8 @@ from flask import Flask
 from flask_restx import Api
 from flask_jwt_extended import JWTManager
 from models.GeosCrud import db
-from resources.geospaciais import ItemResource, GeospatialSearch, UserRegistrationResource, UserAuthenticationResource
+from resources.geospaciais import (ItemResource, GeospatialSearch, 
+                                   UserRegistrationResource, UserAuthenticationResource, ItemAllResource)
 
 from config import config_by_name
 
@@ -27,7 +28,8 @@ def create_app(config_name):
             db.create_all()
 
     
-    def load_endpoint_uri():        
+    def load_endpoint_uri():
+        api.add_resource(ItemAllResource, '/itens') # retornadno todos os itens do banco de dados 
         api.add_resource(ItemResource, '/item/<string:id>') # crud da aplicação do item 
         api.add_resource(GeospatialSearch, '/geo-search') # buscar o um item por campo geométrico 
         api.add_resource(UserRegistrationResource, '/register')  # registro do usuário
