@@ -62,7 +62,7 @@ De acordo com o ``requiremenets.txt`` ele é o responsável para manter os `fram
 
 ### Como executar o projeto 🖥️🌐
 
-Para executar o API
+Para excutar o servidor da `api` abra o terminal no diretório que clonou o projeto digita o seguintes comandos: 
 
 
 ```bash
@@ -74,7 +74,7 @@ Definindo o `run.py`
 $env:FLASK_APP = "run"
 ```
 
-Com o Debugger ativo!
+Com o Debugger ativo! (axuliar de erros)
 ```bash 
 python run.py 
 ```
