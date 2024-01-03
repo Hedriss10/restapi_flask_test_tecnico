@@ -10,11 +10,13 @@ Abra seu editor de texto favorito e crie um arquivo chamado `Dockerfile` no dire
 
 ```Dockerfile
 # Dockerfile
-FROM postgres:latest
+FROM postgis/postgis:latest
 
-ENV POSTGRES_PASSWORD 1234
-ENV POSTGRES_DB apirestflask
-ENV POSTGRES_USER root
+
+ENV POSTGRES_DB=flaskrestapi
+ENV POSTGRES_USER=root
+ENV POSTGRES_PASSWORD=1234
+
 ```
 
 Este `Dockerfile` usa a imagem oficial do PostgreSQL e define as variáveis de ambiente necessárias.

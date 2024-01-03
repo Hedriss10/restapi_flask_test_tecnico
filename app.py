@@ -1,46 +1,46 @@
 # --utf8-- 
 
 """
-Script para configurar o engine do Flask 
-e com isso iremos colocar a regra de negocio com a as informações de execução.
+App do Flask com a regra de negócio aplicada de acordo com o test técnico
 """
 from flask import Flask
-from flask_sqlalchemy import SQLAlchemy
-from flask_restful import Api
-from config import app_active, app_config
-from resources.geospaciais import Georest, GeoGrud
+from flask_restx import Api
+from flask_jwt_extended import JWTManager
+from models.GeosCrud import db
+from resources.geospaciais import ItemResource, GeospatialSearch, UserRegistrationResource, UserAuthenticationResource
 
+from config import config_by_name
 
-# Variavel de controle de desenvolvimento
-config = app_config[app_active]
-
-
-# criando o app
 def create_app(config_name):
     app = Flask(__name__)
-    app.config.from_object(app_config[config_name])
-    app.config["SQLALCHEMY_DATABASE_URI"] = 'postgresql://root:1234@localhost/apirestflask'
-    app.config["SQLACLHEMY_TRACK_MODIFICATIONS"] = True
+    app.config.from_object(config_by_name[config_name])
     
-    db = SQLAlchemy(app)
-    api = Api(app)
+    db.init_app(app)  # Initialize SQLAlchemy with the Flask app
+    
+    api = Api(app, version="1.0", title='APIREST Itens geoespaciais', description='Desenvolvimento de APIREST para teste técnico.')
+    
+    jwt = JWTManager(app)
     
     @app.before_request
-    def create_database():
-        db.create_all()
+    def before_first_request():
+        with app.app_context():
+            db.create_all()
 
-
-    def load_endpoint_uri():
-        print("Executando o load_endpoint dos recursos da api")
-        api.add_resource(Georest, "/itens")
-        api.add_resource(GeoGrud, "/item<string:id_itens>")
-        
-        
+    @app.before_request
+    def before_request():
+        # Additional logic before each request
+        pass
+    
+    def load_endpoint_uri():        
+        api.add_resource(ItemResource, '/item/<string:id>') # crud da aplicação do item 
+        api.add_resource(GeospatialSearch, '/geo-search') # buscar o um item por campo geométrico 
+        api.add_resource(UserRegistrationResource, '/register')  # registro do usuário
+        api.add_resource(UserAuthenticationResource, '/login')  # login do usuário
         
     load_endpoint_uri()
     
     return app
-        
+
 if __name__ == "__main__":
-    app = create_app(app_active)
-    config.APP.run(host=config.IP_HOST, port=config.PORT_HOST, debug=True)
+    app = create_app(config_name='development')
+    app.run(host=app.config['IP_HOST'], port=app.config['PORT_HOST'], debug=app.config['DEBUG'])

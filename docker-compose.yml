@@ -1,19 +1,14 @@
+# docker-compose.yml
 version: '3'
-
 services:
-
   postgres:
-
     build:
       context: .
       dockerfile: Dockerfile
-
     ports:
       - "5432:5432"
-
     volumes:
       - ./database:/var/lib/postgresql/data
-
     environment:
       POSTGRES_PASSWORD: 1234
       POSTGRES_DB: apirestflask
