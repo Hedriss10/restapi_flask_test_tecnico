@@ -76,11 +76,10 @@ Você pode usar uma ferramenta de administração de banco de dados, como o `psq
 - Nome do usuário: `root`
 - Senha: `1234`
 
-**Pare e remova o contêiner.**
+**Pare e remova o contêiner (Opcional).**
 
 Quando você terminar de usar o contêiner, pare e remova-o com o seguinte comando:
 
 ```bash
 docker-compose down
 ```
-(Opcional)
