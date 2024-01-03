@@ -26,10 +26,6 @@ def create_app(config_name):
         with app.app_context():
             db.create_all()
 
-    @app.before_request
-    def before_request():
-        # Additional logic before each request
-        pass
     
     def load_endpoint_uri():        
         api.add_resource(ItemResource, '/item/<string:id>') # crud da aplicação do item 

@@ -4,6 +4,21 @@ from models.GeosCrud import ItemModel, UsersModel
 
 api = Api()
 
+item_model = api.model('Item', {
+    'id': fields.String(required=True, description='Identificador único do item'),
+    'name': fields.String(required=True, description='Nome do item'),
+    'description': fields.String(required=True, description='Descrição do item'),
+    'geometry': fields.String(required=True, description='Campo de geometria do tipo Point')
+})
+
+
+geospatial_search_model = api.model('GeospatialSearch', {
+    'latitude': fields.Float(required=True, description='Latitude do ponto central'),
+    'longitude': fields.Float(required=True, description='Longitude do ponto central'),
+    'radius': fields.Float(required=True, description='Raio de busca em unidades específicas')
+})
+
+
 class ItemResource(Resource):
     attrs = reqparse.RequestParser()
     attrs.add_argument("id", type=str, required=True, help="The field 'nome' cannot be left blank.")
@@ -73,11 +88,11 @@ class GeospatialSearch(Resource):
         Solicitando autenticação do usuário 
     """
     @jwt_required()
-    @api.expect(api.model('GeospatialSearch', {
-        'latitude': fields.Float(required=True, description='Latitude do ponto central'),
-        'longitude': fields.Float(required=True, description='Longitude do ponto central'),
-        'radius': fields.Float(required=True, description='Raio de busca em unidades específicas')
-    }))
+    # @api.expect(api.model('GeospatialSearch', {
+    #     'latitude': fields.Float(required=True, description='Latitude do ponto central'),
+    #     'longitude': fields.Float(required=True, description='Longitude do ponto central'),
+    #     'radius': fields.Float(required=True, description='Raio de busca em unidades específicas')
+    # }))
     def get(self):
         """
         Metedo de URI get para buscar o item 
@@ -96,7 +111,6 @@ class GeospatialSearch(Resource):
         result = ItemModel.find_nearest_satellite(latitude, longitude, radius)
 
         return {"results": [item.json() for item in result]}, 200
-
 
 class UserRegistrationResource(Resource):
     """
