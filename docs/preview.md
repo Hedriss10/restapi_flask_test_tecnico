@@ -72,7 +72,7 @@ Você pode usar uma ferramenta de administração de banco de dados, como o `psq
 
 - Host: `localhost`
 - Porta: `5432`
-- Nome do banco de dados: `apirestflask`
+- Nome do banco de dados: `flaskrestapi`
 - Nome do usuário: `root`
 - Senha: `1234`
 
