@@ -21,7 +21,7 @@ geospatial_search_model = api.model('GeospatialSearch', {
 
 class ItemResource(Resource):
     attrs = reqparse.RequestParser()
-    attrs.add_argument("id", type=str, required=True, help="The field 'nome' cannot be left blank.")
+    attrs.add_argument("id", type=str)
     attrs.add_argument("name")
     attrs.add_argument("descreption")
     attrs.add_argument("geometry")
